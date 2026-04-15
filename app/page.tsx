@@ -1,3 +1,5 @@
+import { Navbar } from '@/components/layout/Navbar';
+import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { Services } from '@/components/sections/Services';
 import { Trainers } from '@/components/sections/Trainers';
@@ -7,13 +9,17 @@ import { WhatsAppButton } from '@/components/common/WhatsAppButton';
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <Hero />
-      <Services />
-      <Trainers />
-      <Testimonials />
-      <Contact />
+    <>
+      <Navbar />
+      <main className="min-h-screen">
+        <Hero />
+        <Services />
+        <Trainers />
+        <Testimonials />
+        <Contact />
+      </main>
+      <Footer />
       <WhatsAppButton />
-    </main>
+    </>
   );
 }

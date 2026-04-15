@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   description: "Premium fitness center in Pakistan with expert trainers, state-of-the-art equipment, and personalized training programs. Join 200+ transformed members today!",
   keywords: ["gym", "fitness", "personal training", "weight loss", "strength training", "Pakistan gym", "Lahore gym"],
   authors: [{ name: "FitForge Gym" }],
+  metadataBase: new URL("https://fitforgegym.com"),
   openGraph: {
     title: "FitForge Gym - Transform Your Body, Transform Your Life",
     description: "Premium fitness center with expert trainers and personalized programs. Start your transformation today!",
@@ -39,11 +40,12 @@ export const metadata: Metadata = {
     description: "Premium fitness center with expert trainers and personalized programs.",
     images: ["/images/og-image.jpg"],
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
   themeColor: "#FF6200",
 };
 

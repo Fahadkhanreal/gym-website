@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Placeholder Image Generator</title>
+</head>
+<body>
+    <h1>Placeholder Images for Gym Website</h1>
+    <p>Right-click and save each image below:</p>
+
+    <h2>Hero Background (1920x1080)</h2>
+    <canvas id="hero-bg" width="1920" height="1080"></canvas>
+
+    <h2>Trainers (400x400)</h2>
+    <canvas id="trainer-1" width="400" height="400"></canvas>
+    <canvas id="trainer-2" width="400" height="400"></canvas>
+    <canvas id="trainer-3" width="400" height="400"></canvas>
+
+    <h2>Gallery (800x600)</h2>
+    <canvas id="gym-1" width="800" height="600"></canvas>
+    <canvas id="gym-2" width="800" height="600"></canvas>
+    <canvas id="gym-3" width="800" height="600"></canvas>
+    <canvas id="gym-4" width="800" height="600"></canvas>
+    <canvas id="gym-5" width="800" height="600"></canvas>
+    <canvas id="gym-6" width="800" height="600"></canvas>
+
+    <h2>Testimonials (200x200)</h2>
+    <canvas id="client-1" width="200" height="200"></canvas>
+    <canvas id="client-2" width="200" height="200"></canvas>
+    <canvas id="client-3" width="200" height="200"></canvas>
+    <canvas id="client-4" width="200" height="200"></canvas>
+
+    <h2>OG Image (1200x630)</h2>
+    <canvas id="og-image" width="1200" height="630"></canvas>
+
+    <script>
+        function createPlaceholder(id, color, text) {
+            const canvas = document.getElementById(id);
+            const ctx = canvas.getContext('2d');
+
+            // Fill background
+            ctx.fillStyle = color;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Add text
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 48px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(text, canvas.width / 2, canvas.height / 2);
+
+            // Add download link
+            const link = document.createElement('a');
+            link.download = id + '.jpg';
+            link.href = canvas.toDataURL('image/jpeg', 0.9);
+            link.textContent = 'Download ' + id + '.jpg';
+            link.style.display = 'block';
+            link.style.marginBottom = '10px';
+            canvas.parentNode.insertBefore(link, canvas.nextSibling);
+        }
+
+        // Generate all placeholders
+        createPlaceholder('hero-bg', '#1a1a1a', 'Hero Background');
+        createPlaceholder('trainer-1', '#FF6200', 'Trainer 1');
+        createPlaceholder('trainer-2', '#E63939', 'Trainer 2');
+        createPlaceholder('trainer-3', '#FF6200', 'Trainer 3');
+        createPlaceholder('gym-1', '#2a2a2a', 'Gym Interior');
+        createPlaceholder('gym-2', '#3a3a3a', 'Equipment');
+        createPlaceholder('gym-3', '#2a2a2a', 'Cardio Area');
+        createPlaceholder('gym-4', '#3a3a3a', 'Group Class');
+        createPlaceholder('gym-5', '#2a2a2a', 'Training');
+        createPlaceholder('gym-6', '#3a3a3a', 'Workout Floor');
+        createPlaceholder('client-1', '#FF6200', 'Client 1');
+        createPlaceholder('client-2', '#E63939', 'Client 2');
+        createPlaceholder('client-3', '#FF6200', 'Client 3');
+        createPlaceholder('client-4', '#E63939', 'Client 4');
+        createPlaceholder('og-image', '#FF6200', 'FitForge Gym');
+    </script>
+</body>
+</html>

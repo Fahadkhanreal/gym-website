@@ -223,6 +223,20 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     category: GalleryCategory.INTERIOR,
     order: 6,
   },
+  {
+    id: 'gallery-7',
+    url: '/images/gallery/gym-7.jpg',
+    alt: 'Functional training area with equipment',
+    category: GalleryCategory.EQUIPMENT,
+    order: 7,
+  },
+  {
+    id: 'gallery-8',
+    url: '/images/gallery/gym-8.jpg',
+    alt: 'Modern fitness facility with natural lighting',
+    category: GalleryCategory.INTERIOR,
+    order: 8,
+  },
 ];
 
 // Social Links

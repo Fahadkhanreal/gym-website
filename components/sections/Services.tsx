@@ -16,6 +16,13 @@ const iconMap = {
 };
 
 export const Services = () => {
+  const scrollToContact = () => {
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <Section id="services" background="default">
       <Container>
@@ -65,7 +72,10 @@ export const Services = () => {
                   </p>
 
                   {/* Learn More Button */}
-                  <button className="text-primary hover:text-primary/80 font-semibold transition-colors">
+                  <button
+                    onClick={scrollToContact}
+                    className="text-primary hover:text-primary/80 font-semibold transition-colors"
+                  >
                     Learn More →
                   </button>
                 </Card>

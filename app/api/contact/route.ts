@@ -70,12 +70,14 @@ export async function POST(request: NextRequest) {
     const validatedData = contactSchema.parse(body);
 
     // Send email via Resend
-    await resend.emails.send({
-      from: 'FitForge Gym <noreply@yourgym.com>',
+    const result = await resend.emails.send({
+      from: 'FitForge Gym <onboarding@resend.dev>',
       to: GYM_OWNER_EMAIL,
       subject: `New Contact Form Submission - ${validatedData.name}`,
       html: generateEmailTemplate(validatedData),
     });
+
+    console.log('Email sent successfully:', result);
 
     // Return success response
     return NextResponse.json({
@@ -100,10 +102,18 @@ export async function POST(request: NextRequest) {
 
     // Handle other errors
     console.error('Contact form error:', error);
+
+    // Log detailed error for debugging
+    if (error instanceof Error) {
+      console.error('Error message:', error.message);
+      console.error('Error stack:', error.stack);
+    }
+
     return NextResponse.json(
       {
         success: false,
         error: 'Failed to send email. Please try again or contact us via WhatsApp.',
+        details: error instanceof Error ? error.message : 'Unknown error',
       },
       { status: 500 }
     );
